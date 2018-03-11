@@ -1,7 +1,6 @@
 // camera.js
 
 var live_url    = "http://192.168.1.6:88/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=guest&pwd=guest";
-// var url    = "https://188.183.235.63/cgi-bin/CGIProxy.fcgi?cmd=snapPicture2&usr=guest&pwd=guest";
 var nimg   = 0;
 var nmax   = 0;
 var dir    = "FI9805W_00626E4EB6F5/snap";

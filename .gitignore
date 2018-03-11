@@ -100,8 +100,9 @@ ENV/
 # mypy
 .mypy_cache/
 
-# password info is injected into app.yaml before deploy
+# password and mail info is injected into app.yaml before deploy
 app.yaml
 .password
+.mail_sender
 
 tags

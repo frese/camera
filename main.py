@@ -32,7 +32,6 @@ def login():
     else:
         flash('Wrong password!')
     return redirect('/')
-    #return index()
 
 @app.route('/logout')
 def logout():
