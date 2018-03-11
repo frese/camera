@@ -1,0 +1,24 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+inbound_services:
+- mail
+
+handlers:
+- url: /_ah/mail/.+
+  script: mail.app
+
+- url: /.*
+  script: main.app
+  
+env_variables:
+  GOOGLE_CLOUD_STORAGE_BUCKET: camera-185513.appspot.com
+  BUCKET_NAME: camera-185513.appspot.com
+  PASSWORD: %PASSWORD%
+  MAIL_SENDER: %MAIL_SENDER%
+
+libraries:
+- name: flask
+  version: 0.12
+
