@@ -35,7 +35,7 @@ function fetch_data(date) {
 }
 function set_img(n) {
     nimg = n;
-    document.getElementById("img").src="http://"+bucket_name+".storage.googleapis.com/" + images[nimg];
+    document.getElementById("img").src="https://"+bucket_name+".storage.googleapis.com/" + images[nimg];
 	document.getElementById("tid").innerHTML=times[nimg];
 	document.getElementById("nimg").innerHTML=nimg;
     // $("#leftpanel").panel("close");
@@ -44,7 +44,7 @@ function next_img() {
 	var more = true;
     nimg += 1;
     if (nimg > nmax) { nimg = nmax; more = false; }
-    document.getElementById("img").src="http://"+bucket_name+".storage.googleapis.com/" + images[nimg];
+    document.getElementById("img").src="https://"+bucket_name+".storage.googleapis.com/" + images[nimg];
 	document.getElementById("tid").innerHTML=times[nimg];
 	document.getElementById("nimg").innerHTML=nimg;
 	return more;
@@ -53,7 +53,7 @@ function prev_img() {
 	var more = true;
     nimg -= 1;
     if (nimg < 0) { nimg = 0; more = false; }
-    document.getElementById("img").src="http://"+bucket_name+".storage.googleapis.com/" + images[nimg];
+    document.getElementById("img").src="https://"+bucket_name+".storage.googleapis.com/" + images[nimg];
 	document.getElementById("tid").innerHTML=times[nimg];
 	document.getElementById("nimg").innerHTML=nimg;
 	return more;

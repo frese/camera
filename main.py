@@ -16,6 +16,11 @@ SECRET_COOKIE = hashlib.md5(PASSWORD).hexdigest()
 app = Flask(__name__)
 app.secret_key = os.urandom(12)
 
+@app.before_request
+def force_https():
+    if request.endpoint in app.view_functions and not request.is_secure:
+        return redirect(request.url.replace('http://', 'https://'))
+
 @app.route('/')
 def index():
     # Check authentication
