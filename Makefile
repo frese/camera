@@ -6,10 +6,13 @@
 PASSWORD    := $(shell cat .password)
 MAIL_SENDER := $(shell cat .mail_sender)
 
+profile:
+	@gcloud config configurations activate default
+
 tail:
 	@gcloud app logs tail -s default --level=debug
 	
-deploy: install
+deploy: profile install
 	@cat app.tmpl|sed 's/%PASSWORD%/${PASSWORD}/'|sed 's/%MAIL_SENDER%/${MAIL_SENDER}/' > app.yaml
 	@gcloud -q app deploy --promote --stop-previous-version
 	@rm -f app.yaml
@@ -21,6 +24,7 @@ run:
 	@dev_appserver.py app.yaml
 
 install: lib/
+	echo > lib/__init__.py
 	pip install --upgrade -t lib -r requirements.txt
 
 empty-bucket:
