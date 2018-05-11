@@ -91,9 +91,9 @@ function live() {
 		var date = new Date();
 		document.getElementById("tid").innerHTML = date.toString("HH:mm:ss");
 		document.getElementById("nimg").innerHTML="-";
-        document.getElementById("img").src=url;
+        document.getElementById("img").src=live_url;
 
-		timer = setTimeout(function() { live_update();}, 1000);
+		timer = setTimeout(function() { live_update();}, 3000);
 
 	} else {
 		if (timer) {
@@ -108,9 +108,9 @@ function live() {
 function live_update() {
 	var date = new Date();
     document.getElementById("tid").innerHTML = date.toString("HH:mm:ss");
-    document.getElementById("img").src = url + "#" + date.getTime();
+    document.getElementById("img").src = live_url + "#" + date.getTime();
 
-	timer = setTimeout(function() { live_update();}, 1000);
+	timer = setTimeout(function() { live_update();}, 3000);
 }
 
 function film_roll() {
