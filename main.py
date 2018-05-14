@@ -14,7 +14,7 @@ SECRET_COOKIE = hashlib.md5(PASSWORD).hexdigest()
 
 #logging.setLevel(logging.DEBUG)
 app = Flask(__name__)
-app.secret_key = os.urandom(12)
+app.secret_key = os.getenv("SECRET_KEY")
 
 @app.before_request
 def force_https():

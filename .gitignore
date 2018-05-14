@@ -104,5 +104,6 @@ ENV/
 app.yaml
 .password
 .mail_sender
+.secret_key
 
 tags

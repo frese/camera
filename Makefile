@@ -5,6 +5,7 @@
 
 PASSWORD    := $(shell cat .password)
 MAIL_SENDER := $(shell cat .mail_sender)
+SECRET_KEY  := $(shell cat .secret_key)
 
 profile:
 	@gcloud config configurations activate default
@@ -13,7 +14,7 @@ tail:
 	@gcloud app logs tail -s default --level=debug
 	
 deploy: profile install
-	@cat app.tmpl|sed 's/%PASSWORD%/${PASSWORD}/'|sed 's/%MAIL_SENDER%/${MAIL_SENDER}/' > app.yaml
+	@cat app.tmpl|sed -e 's/%PASSWORD%/${PASSWORD}/' -e 's/%MAIL_SENDER%/${MAIL_SENDER}/' -e 's/%SECRET_KEY%/${SECRET_KEY}/' > app.yaml
 	@gcloud -q app deploy --promote --stop-previous-version
 	@rm -f app.yaml
 	
